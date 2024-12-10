@@ -20,6 +20,7 @@ export enum FormFieldType {
   FILE = "file",
   DATE_PICKER = "datePicker",
   PHONE_INPUT = "phoneInput",
+  SKELETON= "skeleton"
 }
 
 const PatientForm = () => {
@@ -42,19 +43,18 @@ const PatientForm = () => {
   }: z.infer<typeof UserFormValidation>) {
     setIsLoading(true);
     try {
-      const userData = { name, email, phone };
-
-      const user = await createUser(userData);
-
-      if (user) router.push(`/patients/${user.$id}/register`);
+      const user = { name, email, phone };
+      const newUser = await createUser(user);
+      if (newUser) router.push(`/patients/${newUser.$id}/register`);
     } catch (error) {
       console.log(error);
     }
-  }
+    setIsLoading(false);
+  };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-        <section className="mb-12 space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 flex-1">
+        <section className="mb-10 space-y-3">
           <h1 className="header">Hi there 👋</h1>
           <p className="text-dark-700">Book your first appointment</p>
         </section>
