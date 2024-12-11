@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,8 +11,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Appointment } from "@/types/appwrite.types";
-
-
 import "react-datepicker/dist/react-datepicker.css";
 import AppointmentForm from "./form/AppointmentForm";
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 "use client";
 
@@ -108,7 +109,7 @@ const AppointmentForm = ({
         const updatedAppointment = await updateAppointment(appointmentToUpdate);
 
         if (updatedAppointment) {
-            if(setOpen) setOpen(false);
+          setOpen && setOpen(false);
           form.reset();
         }
       }
